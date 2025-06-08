@@ -1,0 +1,1066 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K@T Guild - Lords Mobile Recruitment</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Exo+2:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6c5ce7;
+            --secondary: #00d2d3;
+            --accent: #fd79a8;
+            --dark: #0f1129;
+            --darker: #080a1a;
+            --light: #dfe6e9;
+        }
+        
+        body {
+            font-family: 'Exo 2', sans-serif;
+            background-color: var(--darker);
+            color: #fff;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, .gaming-font {
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .hero-text {
+            text-shadow: 0 0 15px rgba(108, 92, 231, 0.8);
+        }
+        
+        .primary-text {
+            background: linear-gradient(to right, #6c5ce7, #a29bfe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 10px rgba(108, 92, 231, 0.3);
+        }
+        
+        .secondary-text {
+            background: linear-gradient(to right, #00d2d3, #55efc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .accent-text {
+            background: linear-gradient(to right, #fd79a8, #fab1a0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .card {
+            background: rgba(15, 17, 41, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(108, 92, 231, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 15px rgba(108, 92, 231, 0.2);
+        }
+        
+        .cyber-border {
+            position: relative;
+            border: 1px solid rgba(108, 92, 231, 0.3);
+        }
+        
+        .cyber-border::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            /* background: linear-gradient(45deg, var(--primary), transparent, var(--secondary), transparent, var(--primary)); */
+            z-index: -1;
+            animation: borderAnimation 8s linear infinite;
+        }
+        
+        @keyframes borderAnimation {
+            0% { background-position: 0 0; }
+            100% { background-position: 300% 0; }
+        }
+        
+        .glow-button {
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(108, 92, 231, 0.5);
+        }
+        
+        .glow-button:after {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, rgba(108, 92, 231, 0), rgba(108, 92, 231, 0.4), rgba(108, 92, 231, 0));
+            transform: rotate(45deg);
+            animation: glowEffect 3s infinite;
+            z-index: -1;
+        }
+        
+        @keyframes glowEffect {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) rotate(45deg); }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .bg-grid {
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        
+        .bg-noise {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        
+        .hexagon {
+            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+        }
+        
+        .stat-item {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-item::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--primary), transparent);
+        }
+        
+        .castle-svg {
+            filter: drop-shadow(0 0 8px rgba(0, 210, 211, 0.6));
+        }
+        
+        .sword-svg {
+            filter: drop-shadow(0 0 8px rgba(108, 92, 231, 0.6));
+        }
+        
+        .shield-svg {
+            filter: drop-shadow(0 0 8px rgba(253, 121, 168, 0.6));
+        }
+        
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--darker);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 4px;
+        }
+        
+        /* Animated background */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .animated-bg::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, transparent 0%, var(--darker) 70%),
+                        radial-gradient(circle at 30% 20%, rgba(108, 92, 231, 0.1) 0%, transparent 30%),
+                        radial-gradient(circle at 70% 60%, rgba(0, 210, 211, 0.1) 0%, transparent 30%);
+            animation: rotateGradient 30s linear infinite;
+        }
+        
+        @keyframes rotateGradient {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Game character animation */
+        .character {
+            animation: characterFloat 4s ease-in-out infinite;
+        }
+        
+        @keyframes characterFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(2deg); }
+        }
+        
+        /* Glitch effect */
+        .glitch {
+            position: relative;
+        }
+        
+        .glitch::before, .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .glitch::before {
+            left: 2px;
+            text-shadow: -1px 0 #00d2d3;
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim 5s infinite linear alternate-reverse;
+        }
+        
+        .glitch::after {
+            left: -2px;
+            text-shadow: -1px 0 #6c5ce7;
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim2 5s infinite linear alternate-reverse;
+        }
+        
+        @keyframes glitch-anim {
+            0% { clip: rect(31px, 9999px, 94px, 0); }
+            10% { clip: rect(112px, 9999px, 76px, 0); }
+            20% { clip: rect(85px, 9999px, 77px, 0); }
+            30% { clip: rect(144px, 9999px, 91px, 0); }
+            40% { clip: rect(40px, 9999px, 18px, 0); }
+            50% { clip: rect(37px, 9999px, 5px, 0); }
+            60% { clip: rect(115px, 9999px, 165px, 0); }
+            70% { clip: rect(99px, 9999px, 144px, 0); }
+            80% { clip: rect(23px, 9999px, 34px, 0); }
+            90% { clip: rect(105px, 9999px, 162px, 0); }
+            100% { clip: rect(16px, 9999px, 87px, 0); }
+        }
+        
+        @keyframes glitch-anim2 {
+            0% { clip: rect(121px, 9999px, 154px, 0); }
+            10% { clip: rect(142px, 9999px, 66px, 0); }
+            20% { clip: rect(62px, 9999px, 147px, 0); }
+            30% { clip: rect(157px, 9999px, 71px, 0); }
+            40% { clip: rect(132px, 9999px, 27px, 0); }
+            50% { clip: rect(28px, 9999px, 148px, 0); }
+            60% { clip: rect(42px, 9999px, 18px, 0); }
+            70% { clip: rect(111px, 9999px, 83px, 0); }
+            80% { clip: rect(133px, 9999px, 114px, 0); }
+            90% { clip: rect(33px, 9999px, 115px, 0); }
+            100% { clip: rect(186px, 9999px, 67px, 0); }
+        }
+        
+        /* Modern glass effect */
+        .glass {
+            background: rgba(15, 17, 41, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        /* Neon glow */
+        .neon-glow {
+            box-shadow: 0 0 10px rgba(108, 92, 231, 0.5),
+                        0 0 20px rgba(108, 92, 231, 0.3),
+                        0 0 30px rgba(108, 92, 231, 0.1);
+        }
+        
+        .neon-text {
+            text-shadow: 0 0 5px rgba(108, 92, 231, 0.8),
+                         0 0 10px rgba(108, 92, 231, 0.5),
+                         0 0 15px rgba(108, 92, 231, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-grid">
+    <div class="animated-bg"></div>
+    <div class="bg-noise"></div>
+    
+    <div class="min-h-screen flex flex-col relative z-10">
+        <!-- Header -->
+        <header class="py-4 px-6 md:px-12 flex justify-between items-center border-b border-indigo-500/20 glass">
+            <div class="flex items-center">
+                <div class="text-3xl font-extrabold gaming-font relative">
+                    <span class="primary-text glitch" data-text="K@T">K@T</span>
+                    <div class="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-indigo-500 to-transparent"></div>
+                </div>
+            </div>
+            <nav class="flex items-center space-x-6">
+                <a href="#about" class="hidden md:block text-gray-300 hover:text-white transition-colors">About</a>
+                <a href="#requirements" class="hidden md:block text-gray-300 hover:text-white transition-colors">Requirements</a>
+                <button id="contactBtn" class="glow-button bg-gradient-to-r from-indigo-500 to-purple-600 px-5 py-2 rounded-md font-bold hover:from-indigo-600 hover:to-purple-700 transition-all duration-300 shadow-lg">
+                    Contact Us
+                </button>
+            </nav>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="relative py-16 md:py-24 px-4 overflow-hidden">
+            <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 text-center md:text-left mb-12 md:mb-0">
+                    <h1 class="text-4xl md:text-6xl font-black mb-4 hero-text gaming-font tracking-wider">
+                        <span class="primary-text">🎮 K@T GUILD 🎮</span>
+                    </h1>
+                    <div class="w-32 h-1 bg-gradient-to-r from-indigo-500 to-purple-600 mx-auto md:mx-0 mb-6"></div>
+                    <h2 class="text-2xl md:text-3xl font-bold mb-6 secondary-text gaming-font">NOW RECRUITING!</h2>
+                    <p class="text-xl mb-8 text-gray-300">
+                        We are looking for <span class="text-purple-400 font-bold">Rally Leads</span>, 
+                        <span class="text-teal-400 font-bold">Rally Fillers</span>, and 
+                        <span class="text-pink-400 font-bold">Traps</span>!
+                    </p>
+                    <div class="flex flex-col sm:flex-row justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
+                        <button id="joinBtn" class="glow-button bg-gradient-to-r from-indigo-500 to-purple-600 px-8 py-4 rounded-md text-xl font-bold hover:from-indigo-600 hover:to-purple-700 transition-all duration-300 shadow-lg pulse">
+                            👉 Join the fight!
+                        </button>
+                        <a href="#stats" class="border border-teal-500/50 hover:border-teal-500 px-8 py-4 rounded-md text-xl font-bold transition-all duration-300 text-center">
+                            Guild Stats
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2 relative">
+                    <!-- Castle SVG Illustration -->
+                    <div class="castle-svg character">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+                            <!-- Base -->
+                            <rect x="250" y="400" width="300" height="150" fill="#1e1e42" stroke="#2d2d6d" stroke-width="4"/>
+                            
+                            <!-- Main Tower -->
+                            <rect x="325" y="200" width="150" height="200" fill="#1e1e42" stroke="#2d2d6d" stroke-width="4"/>
+                            <polygon points="325,200 400,150 475,200" fill="#2d2d6d" stroke="#3d3d8d" stroke-width="4"/>
+                            
+                            <!-- Left Tower -->
+                            <rect x="250" y="250" width="75" height="150" fill="#1e1e42" stroke="#2d2d6d" stroke-width="4"/>
+                            <polygon points="250,250 287.5,220 325,250" fill="#2d2d6d" stroke="#3d3d8d" stroke-width="4"/>
+                            
+                            <!-- Right Tower -->
+                            <rect x="475" y="250" width="75" height="150" fill="#1e1e42" stroke="#2d2d6d" stroke-width="4"/>
+                            <polygon points="475,250 512.5,220 550,250" fill="#2d2d6d" stroke="#3d3d8d" stroke-width="4"/>
+                            
+                            <!-- Windows -->
+                            <rect x="350" y="250" width="30" height="50" fill="#00d2d3" opacity="0.7"/>
+                            <rect x="420" y="250" width="30" height="50" fill="#00d2d3" opacity="0.7"/>
+                            <rect x="350" y="320" width="30" height="50" fill="#00d2d3" opacity="0.7"/>
+                            <rect x="420" y="320" width="30" height="50" fill="#00d2d3" opacity="0.7"/>
+                            
+                            <!-- Door -->
+                            <rect x="375" y="450" width="50" height="100" fill="#4a2d6a" stroke="#5a3d7a" stroke-width="2"/>
+                            
+                            <!-- Flags -->
+                            <polygon points="400,150 400,100 430,110 400,120" fill="#6c5ce7" stroke="#8c7cf7" stroke-width="2">
+                                <animate attributeName="points" dur="3s" repeatCount="indefinite" 
+                                    values="400,150 400,100 430,110 400,120;
+                                           400,150 400,100 440,115 400,120;
+                                           400,150 400,100 430,110 400,120"/>
+                            </polygon>
+                            
+                            <polygon points="287.5,220 287.5,190 307.5,195 287.5,200" fill="#00d2d3" stroke="#00f2f3" stroke-width="2">
+                                <animate attributeName="points" dur="2.5s" repeatCount="indefinite" 
+                                    values="287.5,220 287.5,190 307.5,195 287.5,200;
+                                           287.5,220 287.5,190 312.5,198 287.5,200;
+                                           287.5,220 287.5,190 307.5,195 287.5,200"/>
+                            </polygon>
+                            
+                            <polygon points="512.5,220 512.5,190 532.5,195 512.5,200" fill="#fd79a8" stroke="#fd99c8" stroke-width="2">
+                                <animate attributeName="points" dur="2.7s" repeatCount="indefinite" 
+                                    values="512.5,220 512.5,190 532.5,195 512.5,200;
+                                           512.5,220 512.5,190 537.5,198 512.5,200;
+                                           512.5,220 512.5,190 532.5,195 512.5,200"/>
+                            </polygon>
+                            
+                            <!-- Glow effect -->
+                            <filter id="glow">
+                                <feGaussianBlur stdDeviation="5" result="blur"/>
+                                <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+                            </filter>
+                            
+                            <!-- Aura -->
+                            <circle cx="400" cy="300" r="200" fill="url(#auraGradient)" opacity="0.2">
+                                <animate attributeName="opacity" values="0.1;0.2;0.1" dur="4s" repeatCount="indefinite"/>
+                            </circle>
+                            
+                            <defs>
+                                <radialGradient id="auraGradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                                    <stop offset="0%" stop-color="#6c5ce7" stop-opacity="0.8"/>
+                                    <stop offset="100%" stop-color="#6c5ce7" stop-opacity="0"/>
+                                </radialGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    
+                    <!-- Decorative elements -->
+                    <div class="absolute top-1/4 left-1/4 w-8 h-8 bg-indigo-500 rounded-full opacity-20 floating" style="animation-delay: 0.5s;"></div>
+                    <div class="absolute top-1/3 right-1/4 w-6 h-6 bg-teal-500 rounded-full opacity-20 floating" style="animation-delay: 1s;"></div>
+                    <div class="absolute bottom-1/4 left-1/3 w-10 h-10 bg-pink-500 rounded-full opacity-20 floating" style="animation-delay: 1.5s;"></div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Stats Section -->
+        <section id="stats" class="py-16 px-4 relative">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center gaming-font secondary-text">GUILD POWER STATS</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="cyber-border card p-6 rounded-lg text-center stat-item">
+                        <div class="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-indigo-500/20 to-purple-600/20 rounded-full flex items-center justify-center">
+                            <svg class="w-12 h-12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#6c5ce7" stroke-width="2">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2 gaming-font">55B+ MIGHT</h3>
+                        <p class="text-gray-400">In just 3 weeks</p>
+                        <div class="mt-4 h-2 bg-gray-700 rounded-full overflow-hidden">
+                            <div class="h-full bg-gradient-to-r from-indigo-500 to-purple-600 w-4/5"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="cyber-border card p-6 rounded-lg text-center stat-item">
+                        <div class="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-teal-500/20 to-cyan-600/20 rounded-full flex items-center justify-center">
+                            <svg class="w-12 h-12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#00d2d3" stroke-width="2">
+                                <path d="M20 7h-7L10 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2 gaming-font">300+ BOXES</h3>
+                        <p class="text-gray-400">Daily rewards</p>
+                        <div class="mt-4 h-2 bg-gray-700 rounded-full overflow-hidden">
+                            <div class="h-full bg-gradient-to-r from-teal-500 to-cyan-600 w-full"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="cyber-border card p-6 rounded-lg text-center stat-item">
+                        <div class="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-pink-500/20 to-rose-600/20 rounded-full flex items-center justify-center">
+                            <svg class="w-12 h-12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#fd79a8" stroke-width="2">
+                                <path d="M12 15c1.93 0 3.5-1.57 3.5-3.5S13.93 8 12 8s-3.5 1.57-3.5 3.5S10.07 15 12 15z"/>
+                                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 15c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2 gaming-font">EXPEDITION</h3>
+                        <p class="text-gray-400">Currently active</p>
+                        <div class="mt-4 h-2 bg-gray-700 rounded-full overflow-hidden">
+                            <div class="h-full bg-gradient-to-r from-pink-500 to-rose-600 w-3/5"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- What We Offer Section -->
+        <section id="about" class="py-16 px-4 relative">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                    <!-- What We Offer -->
+                    <div class="cyber-border card rounded-xl p-8 glass neon-glow">
+                        <h3 class="text-2xl md:text-3xl font-bold mb-8 primary-text gaming-font">WHAT WE OFFER:</h3>
+                        <ul class="space-y-6">
+                            <li class="flex items-start">
+                                <div class="mr-4 p-2 bg-gradient-to-br from-indigo-500/20 to-purple-600/20 rounded-lg">
+                                    <span class="text-2xl">🔹</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg">Active Guild</h4>
+                                    <p class="text-gray-300"><span class="font-bold text-teal-400">55B+ Might</span> in just 3 weeks</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="mr-4 p-2 bg-gradient-to-br from-indigo-500/20 to-purple-600/20 rounded-lg">
+                                    <span class="text-2xl">🚩</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg">Strategic Gameplay</h4>
+                                    <p class="text-gray-300">Smart tactics and coordinated attacks</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="mr-4 p-2 bg-gradient-to-br from-indigo-500/20 to-purple-600/20 rounded-lg">
+                                    <span class="text-2xl">📦</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg">Daily Rewards</h4>
+                                    <p class="text-gray-300"><span class="font-bold text-pink-400">300+ boxes</span> every day</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="mr-4 p-2 bg-gradient-to-br from-indigo-500/20 to-purple-600/20 rounded-lg">
+                                    <span class="text-2xl">💸</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg">Performance Rewards</h4>
+                                    <p class="text-gray-300">Earn rewards based on your contribution</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="mr-4 p-2 bg-gradient-to-br from-indigo-500/20 to-purple-600/20 rounded-lg">
+                                    <span class="text-2xl">📅</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg">Mandatory Events</h4>
+                                    <p class="text-gray-300">We take all events seriously!</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="mr-4 p-2 bg-gradient-to-br from-indigo-500/20 to-purple-600/20 rounded-lg">
+                                    <span class="text-2xl">💪</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg">Active Expedition</h4>
+                                    <p class="text-gray-300">Currently dominating the battlefield</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- What We're Looking For -->
+                    <div id="requirements" class="cyber-border card rounded-xl p-8 glass neon-glow">
+                        <h3 class="text-2xl md:text-3xl font-bold mb-8 secondary-text gaming-font">WHAT WE'RE LOOKING FOR:</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-lg border border-indigo-500/30 hover:border-indigo-500/60 transition-all duration-300">
+                                <div class="sword-svg mb-4">
+                                    <svg class="w-16 h-16 mx-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M14.5 17.5L3 6V3h3l11.5 11.5M14.5 17.5l2.5 2.5M14.5 17.5l2.5-2.5M19.5 19.5L21 21M14.5 12.5L16 11" stroke="#6c5ce7"/>
+                                    </svg>
+                                </div>
+                                <h4 class="text-xl font-bold text-indigo-400 text-center mb-2">Rally Leads</h4>
+                                <ul class="text-sm text-gray-300 space-y-2">
+                                    <li class="flex items-center">
+                                        <svg class="w-4 h-4 mr-2 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                        Experienced in war tactics
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="w-4 h-4 mr-2 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                        Strong hero lineup
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="w-4 h-4 mr-2 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                        Strategic mindset
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-lg border border-teal-500/30 hover:border-teal-500/60 transition-all duration-300">
+                                <div class="shield-svg mb-4">
+                                    <svg class="w-16 h-16 mx-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="#00d2d3"/>
+                                    </svg>
+                                </div>
+                                <h4 class="text-xl font-bold text-teal-400 text-center mb-2">Rally Fillers</h4>
+                                <ul class="text-sm text-gray-300 space-y-2">
+                                    <li class="flex items-center">
+                                        <svg class="w-4 h-4 mr-2 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                        Strong T4/T5 troops
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="w-4 h-4 mr-2 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                        Quick response time
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="w-4 h-4 mr-2 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                        Active during war events
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-lg border border-pink-500/30 hover:border-pink-500/60 transition-all duration-300">
+                                <div class="trap-icon mb-4">
+                                    <svg class="w-16 h-16 mx-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10" stroke="#fd79a8"/>
+                                        <path d="M12 8v8M8 12h8" stroke="#fd79a8"/>
+                                    </svg>
+                                </div>
+                                <h4 class="text-xl font-bold text-pink-400 text-center mb-2">Trap Accounts</h4>
+                                <ul class="text-sm text-gray-300 space-y-2">
+                                    <li class="flex items-center">
+                                        <svg class="w-4 h-4 mr-2 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                        Ready for war
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="w-4 h-4 mr-2 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                        Optimized defense
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="w-4 h-4 mr-2 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                        Strategic positioning
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-lg border border-purple-500/30 hover:border-purple-500/60 transition-all duration-300">
+                                <div class="mb-4 text-4xl text-center">🔥</div>
+                                <h4 class="text-xl font-bold text-purple-400 text-center mb-2">Active Players</h4>
+                                <ul class="text-sm text-gray-300 space-y-2">
+                                    <li class="flex items-center">
+                                        <svg class="w-4 h-4 mr-2 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                        Team-oriented
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="w-4 h-4 mr-2 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                        Goal-driven
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="w-4 h-4 mr-2 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                        Daily participation
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Game Elements Section -->
+        <section class="py-16 px-4 relative">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center gaming-font primary-text">BATTLE READY</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Game Element 1: Battle Scene -->
+                    <div class="cyber-border card p-6 rounded-lg overflow-hidden relative h-80 glass">
+                        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black/70 z-10"></div>
+                        <div class="relative z-20 h-full flex flex-col justify-end">
+                            <h3 class="text-xl font-bold mb-2 gaming-font">KINGDOM WARFARE</h3>
+                            <p class="text-gray-300 mb-4">Coordinate attacks with guild members to conquer enemy territories</p>
+                            <div class="h-1 w-full bg-gradient-to-r from-indigo-500 to-purple-500"></div>
+                        </div>
+                        
+                        <!-- Battle SVG -->
+                        <div class="absolute inset-0 z-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="100%" height="100%">
+                                <!-- Background -->
+                                <rect x="0" y="0" width="400" height="300" fill="#0f1129"/>
+                                
+                                <!-- Castle 1 -->
+                                <rect x="50" y="150" width="100" height="100" fill="#1e1e42"/>
+                                <rect x="75" y="100" width="50" height="50" fill="#1e1e42"/>
+                                <polygon points="75,100 100,70 125,100" fill="#2d2d6d"/>
+                                
+                                <!-- Castle 2 -->
+                                <rect x="250" y="150" width="100" height="100" fill="#2d1e42"/>
+                                <rect x="275" y="100" width="50" height="50" fill="#2d1e42"/>
+                                <polygon points="275,100 300,70 325,100" fill="#3d2e6d"/>
+                                
+                                <!-- Battle elements -->
+                                <circle cx="200" cy="200" r="30" fill="#6c5ce7" opacity="0.3">
+                                    <animate attributeName="r" values="30;40;30" dur="2s" repeatCount="indefinite"/>
+                                    <animate attributeName="opacity" values="0.3;0.5;0.3" dur="2s" repeatCount="indefinite"/>
+                                </circle>
+                                
+                                <!-- Troops -->
+                                <circle cx="150" cy="200" r="5" fill="#00d2d3"/>
+                                <circle cx="160" cy="210" r="5" fill="#00d2d3"/>
+                                <circle cx="140" cy="210" r="5" fill="#00d2d3"/>
+                                <circle cx="155" cy="190" r="5" fill="#00d2d3"/>
+                                
+                                <circle cx="250" cy="200" r="5" fill="#fd79a8"/>
+                                <circle cx="260" cy="210" r="5" fill="#fd79a8"/>
+                                <circle cx="240" cy="210" r="5" fill="#fd79a8"/>
+                                <circle cx="255" cy="190" r="5" fill="#fd79a8"/>
+                                
+                                <!-- Flags -->
+                                <polygon points="85,70 85,50 100,55 85,60" fill="#00d2d3">
+                                    <animate attributeName="points" dur="1.5s" repeatCount="indefinite" 
+                                        values="85,70 85,50 100,55 85,60;
+                                               85,70 85,50 105,58 85,60;
+                                               85,70 85,50 100,55 85,60"/>
+                                </polygon>
+                                
+                                <polygon points="315,70 315,50 330,55 315,60" fill="#fd79a8">
+                                    <animate attributeName="points" dur="1.7s" repeatCount="indefinite" 
+                                        values="315,70 315,50 330,55 315,60;
+                                               315,70 315,50 335,58 315,60;
+                                               315,70 315,50 330,55 315,60"/>
+                                </polygon>
+                            </svg>
+                        </div>
+                    </div>
+                    
+                    <!-- Game Element 2: Heroes -->
+                    <div class="cyber-border card p-6 rounded-lg overflow-hidden relative h-80 glass">
+                        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black/70 z-10"></div>
+                        <div class="relative z-20 h-full flex flex-col justify-end">
+                            <h3 class="text-xl font-bold mb-2 gaming-font">HERO LINEUP</h3>
+                            <p class="text-gray-300 mb-4">Build the perfect team of heroes to lead your armies</p>
+                            <div class="h-1 w-full bg-gradient-to-r from-teal-500 to-cyan-500"></div>
+                        </div>
+                        
+                        <!-- Heroes SVG -->
+                        <div class="absolute inset-0 z-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="100%" height="100%">
+                                <!-- Background -->
+                                <rect x="0" y="0" width="400" height="300" fill="#0f1129"/>
+                                
+                                <!-- Hero frames -->
+                                <rect x="50" y="100" width="60" height="80" rx="5" fill="#1e1e42" stroke="#00d2d3" stroke-width="2"/>
+                                <rect x="130" y="100" width="60" height="80" rx="5" fill="#1e1e42" stroke="#00d2d3" stroke-width="2"/>
+                                <rect x="210" y="100" width="60" height="80" rx="5" fill="#1e1e42" stroke="#00d2d3" stroke-width="2"/>
+                                <rect x="290" y="100" width="60" height="80" rx="5" fill="#1e1e42" stroke="#00d2d3" stroke-width="2"/>
+                                
+                                <!-- Hero silhouettes -->
+                                <path d="M80,140 C80,120 65,120 65,140 L65,160 L95,160 L95,140 C95,120 80,120 80,140" fill="#00d2d3" opacity="0.7"/>
+                                <path d="M160,140 C160,120 145,120 145,140 L145,160 L175,160 L175,140 C175,120 160,120 160,140" fill="#6c5ce7" opacity="0.7"/>
+                                <path d="M240,140 C240,120 225,120 225,140 L225,160 L255,160 L255,140 C255,120 240,120 240,140" fill="#fd79a8" opacity="0.7"/>
+                                <path d="M320,140 C320,120 305,120 305,140 L305,160 L335,160 L335,140 C335,120 320,120 320,140" fill="#55efc4" opacity="0.7"/>
+                                
+                                <!-- Glow effects -->
+                                <circle cx="80" cy="130" r="20" fill="#00d2d3" opacity="0.2">
+                                    <animate attributeName="opacity" values="0.1;0.3;0.1" dur="3s" repeatCount="indefinite"/>
+                                </circle>
+                                <circle cx="160" cy="130" r="20" fill="#6c5ce7" opacity="0.2">
+                                    <animate attributeName="opacity" values="0.1;0.3;0.1" dur="2.5s" repeatCount="indefinite"/>
+                                </circle>
+                                <circle cx="240" cy="130" r="20" fill="#fd79a8" opacity="0.2">
+                                    <animate attributeName="opacity" values="0.1;0.3;0.1" dur="4s" repeatCount="indefinite"/>
+                                </circle>
+                                <circle cx="320" cy="130" r="20" fill="#55efc4" opacity="0.2">
+                                    <animate attributeName="opacity" values="0.1;0.3;0.1" dur="3.5s" repeatCount="indefinite"/>
+                                </circle>
+                                
+                                <!-- Stars -->
+                                <polygon points="65,185 68,195 80,195 70,200 75,210 65,205 55,210 60,200 50,195 62,195" fill="#ffeaa7" opacity="0.8"/>
+                                <polygon points="145,185 148,195 160,195 150,200 155,210 145,205 135,210 140,200 130,195 142,195" fill="#ffeaa7" opacity="0.8"/>
+                                <polygon points="225,185 228,195 240,195 230,200 235,210 225,205 215,210 220,200 210,195 222,195" fill="#ffeaa7" opacity="0.8"/>
+                                <polygon points="305,185 308,195 320,195 310,200 315,210 305,205 295,210 300,200 290,195 302,195" fill="#ffeaa7" opacity="0.8"/>
+                                <polygon points="75,185 78,195 90,195 80,200 85,210 75,205 65,210 70,200 60,195 72,195" fill="#ffeaa7" opacity="0.8"/>
+                                <polygon points="155,185 158,195 170,195 160,200 165,210 155,205 145,210 150,200 140,195 152,195" fill="#ffeaa7" opacity="0.8"/>
+                                <polygon points="235,185 238,195 250,195 240,200 245,210 235,205 225,210 230,200 220,195 232,195" fill="#ffeaa7" opacity="0.8"/>
+                                <polygon points="315,185 318,195 330,195 320,200 325,210 315,205 305,210 310,200 300,195 312,195" fill="#ffeaa7" opacity="0.8"/>
+                            </svg>
+                        </div>
+                    </div>
+                    
+                    <!-- Game Element 3: Resources -->
+                    <div class="cyber-border card p-6 rounded-lg overflow-hidden relative h-80 glass">
+                        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black/70 z-10"></div>
+                        <div class="relative z-20 h-full flex flex-col justify-end">
+                            <h3 class="text-xl font-bold mb-2 gaming-font">RESOURCES & REWARDS</h3>
+                            <p class="text-gray-300 mb-4">Collect resources and earn rewards for your contributions</p>
+                            <div class="h-1 w-full bg-gradient-to-r from-pink-500 to-rose-500"></div>
+                        </div>
+                        
+                        <!-- Resources SVG -->
+                        <div class="absolute inset-0 z-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="100%" height="100%">
+                                <!-- Background -->
+                                <rect x="0" y="0" width="400" height="300" fill="#0f1129"/>
+                                
+                                <!-- Treasure chest -->
+                                <rect x="150" y="120" width="100" height="60" fill="#4a2d6a" stroke="#5a3d7a" stroke-width="2"/>
+                                <path d="M150,120 C150,100 250,100 250,120" fill="none" stroke="#5a3d7a" stroke-width="2"/>
+                                <rect x="190" y="110" width="20" height="20" fill="#3a1d5a" stroke="#5a3d7a" stroke-width="2"/>
+                                
+                                <!-- Gold coins -->
+                                <circle cx="170" cy="150" r="10" fill="#ffeaa7" stroke="#fdcb6e" stroke-width="1"/>
+                                <circle cx="190" cy="160" r="10" fill="#ffeaa7" stroke="#fdcb6e" stroke-width="1"/>
+                                <circle cx="210" cy="150" r="10" fill="#ffeaa7" stroke="#fdcb6e" stroke-width="1"/>
+                                <circle cx="230" cy="160" r="10" fill="#ffeaa7" stroke="#fdcb6e" stroke-width="1"/>
+                                
+                                <!-- Gems -->
+                                <polygon points="160,130 170,120 180,130 170,140" fill="#00d2d3" stroke="#00a0a0" stroke-width="1">
+                                    <animate attributeName="fill" values="#00d2d3;#00a0a0;#00d2d3" dur="3s" repeatCount="indefinite"/>
+                                </polygon>
+                                <polygon points="220,130 230,120 240,130 230,140" fill="#fd79a8" stroke="#e84393" stroke-width="1">
+                                    <animate attributeName="fill" values="#fd79a8;#e84393;#fd79a8" dur="2.5s" repeatCount="indefinite"/>
+                                </polygon>
+                                
+                                <!-- Sparkles -->
+                                <circle cx="170" cy="125" r="2" fill="#ffffff">
+                                    <animate attributeName="opacity" values="1;0;1" dur="1.5s" repeatCount="indefinite"/>
+                                </circle>
+                                <circle cx="230" cy="125" r="2" fill="#ffffff">
+                                    <animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite"/>
+                                </circle>
+                                <circle cx="200" cy="140" r="2" fill="#ffffff">
+                                    <animate attributeName="opacity" values="0.5;1;0.5" dur="1s" repeatCount="indefinite"/>
+                                </circle>
+                                
+                                <!-- Resource icons -->
+                                <circle cx="80" cy="80" r="20" fill="#a0522d" stroke="#8b4513" stroke-width="2"/>
+                                <circle cx="140" cy="80" r="20" fill="#b2bec3" stroke="#636e72" stroke-width="2"/>
+                                <circle cx="200" cy="80" r="20" fill="#ffeaa7" stroke="#fdcb6e" stroke-width="2"/>
+                                <circle cx="260" cy="80" r="20" fill="#74b9ff" stroke="#0984e3" stroke-width="2"/>
+                                <circle cx="320" cy="80" r="20" fill="#55efc4" stroke="#00b894" stroke-width="2"/>
+                                
+                                <!-- Resource labels -->
+                                <text x="80" y="85" text-anchor="middle" fill="white" font-size="10">WOOD</text>
+                                <text x="140" y="85" text-anchor="middle" fill="white" font-size="10">ORE</text>
+                                <text x="200" y="85" text-anchor="middle" fill="white" font-size="10">GOLD</text>
+                                <text x="260" y="85" text-anchor="middle" fill="white" font-size="10">MANA</text>
+                                <text x="320" y="85" text-anchor="middle" fill="white" font-size="10">FOOD</text>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- CTA Section -->
+        <section class="py-16 px-4 relative">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="cyber-border card p-8 rounded-xl glass neon-glow">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6 gaming-font primary-text neon-text">JOIN THE BATTLE TODAY!</h2>
+                    <p class="text-xl mb-8 text-gray-300">
+                        Ready to dominate the battlefield with K@T Guild? We're looking for players like you!
+                    </p>
+                    <button id="joinBtnBottom" class="glow-button bg-gradient-to-r from-indigo-500 to-purple-600 px-8 py-4 rounded-md text-xl font-bold hover:from-indigo-600 hover:to-purple-700 transition-all duration-300 shadow-lg pulse">
+                        👉 Message Us Now!
+                    </button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Footer -->
+        <footer class="py-8 px-4 border-t border-indigo-500/20 glass">
+            <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <div class="text-2xl font-extrabold gaming-font">
+                        <span class="primary-text">K@T GUILD</span>
+                    </div>
+                    <p class="text-gray-400 mt-2">Lords Mobile | Kingdom #XXX</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M21.582,6.186c-0.23-0.86-0.908-1.538-1.768-1.768C18.254,4,12,4,12,4S5.746,4,4.186,4.418 c-0.86,0.23-1.538,0.908-1.768,1.768C2,7.746,2,12,2,12s0,4.254,0.418,5.814c0.23,0.86,0.908,1.538,1.768,1.768 C5.746,20,12,20,12,20s6.254,0,7.814-0.418c0.861-0.23,1.538-0.908,1.768-1.768C22,16.254,22,12,22,12S22,7.746,21.582,6.186z M10,15.464V8.536L16,12L10,15.464z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="max-w-6xl mx-auto mt-8 pt-6 border-t border-gray-800 text-center text-gray-500">
+                <p>© 2023 K@T Guild | Lords Mobile</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Particles -->
+    <div id="particles-container" class="fixed inset-0 pointer-events-none z-0"></div>
+
+    <!-- Modal -->
+    <div id="contactModal" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 hidden">
+        <div class="cyber-border card rounded-xl p-8 max-w-md w-full mx-4 glass neon-glow">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold primary-text gaming-font">CONTACT US</h3>
+                <button id="closeModal" class="text-gray-400 hover:text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <div class="space-y-4">
+                <p class="mb-4">Ready to join K@T Guild? Send us a message!</p>
+                <div class="space-y-2">
+                    <label class="block text-gray-300 gaming-font">YOUR LORDS MOBILE NAME</label>
+                    <input type="text" class="w-full p-3 rounded bg-gray-800 border border-indigo-500/30 focus:border-indigo-500 focus:outline-none">
+                </div>
+                <div class="space-y-2">
+                    <label class="block text-gray-300 gaming-font">YOUR MIGHT</label>
+                    <input type="text" class="w-full p-3 rounded bg-gray-800 border border-indigo-500/30 focus:border-indigo-500 focus:outline-none">
+                </div>
+                <div class="space-y-2">
+                    <label class="block text-gray-300 gaming-font">PLAYER TYPE</label>
+                    <select class="w-full p-3 rounded bg-gray-800 border border-indigo-500/30 focus:border-indigo-500 focus:outline-none">
+                        <option value="">Select your player type</option>
+                        <option value="rally-lead">Rally Lead</option>
+                        <option value="rally-filler">Rally Filler</option>
+                        <option value="trap">Trap Account</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="space-y-2">
+                    <label class="block text-gray-300 gaming-font">MESSAGE</label>
+                    <textarea class="w-full p-3 rounded bg-gray-800 border border-indigo-500/30 focus:border-indigo-500 focus:outline-none h-32"></textarea>
+                </div>
+                <button class="w-full bg-gradient-to-r from-indigo-500 to-purple-600 py-3 rounded-lg font-bold hover:from-indigo-600 hover:to-purple-700 transition-all duration-300 gaming-font">
+                    SEND MESSAGE
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Modal functionality
+        const contactBtn = document.getElementById('contactBtn');
+        const joinBtn = document.getElementById('joinBtn');
+        const joinBtnBottom = document.getElementById('joinBtnBottom');
+        const contactModal = document.getElementById('contactModal');
+        const closeModal = document.getElementById('closeModal');
+        
+        function openModal() {
+            contactModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeModalFunc() {
+            contactModal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+        
+        contactBtn.addEventListener('click', openModal);
+        joinBtn.addEventListener('click', openModal);
+        joinBtnBottom.addEventListener('click', openModal);
+        closeModal.addEventListener('click', closeModalFunc);
+        
+        contactModal.addEventListener('click', function(e) {
+            if (e.target === contactModal) {
+                closeModalFunc();
+            }
+        });
+        
+        // Particles effect
+        function createParticles() {
+            const container = document.getElementById('particles-container');
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random position
+                const posX = Math.random() * window.innerWidth;
+                const posY = Math.random() * window.innerHeight;
+                
+                // Random size
+                const size = Math.random() * 3 + 1;
+                
+                // Random color
+                const colors = ['#6c5ce7', '#00d2d3', '#fd79a8'];
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                
+                // Set styles
+                particle.style.left = `${posX}px`;
+                particle.style.top = `${posY}px`;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.backgroundColor = color;
+                particle.style.boxShadow = `0 0 ${size * 2}px ${color}`;
+                
+                // Animation
+                const duration = Math.random() * 20 + 10;
+                particle.style.animation = `float ${duration}s linear infinite`;
+                particle.style.animationDelay = `${Math.random() * 5}s`;
+                
+                // Add to container
+                container.appendChild(particle);
+                
+                // Float animation
+                function float() {
+                    const newPosX = Math.random() * window.innerWidth;
+                    const newPosY = Math.random() * window.innerHeight;
+                    
+                    particle.style.transition = `all ${duration}s linear`;
+                    particle.style.left = `${newPosX}px`;
+                    particle.style.top = `${newPosY}px`;
+                }
+                
+                float();
+                setInterval(float, duration * 1000);
+            }
+        }
+        
+        // Initialize particles
+        window.addEventListener('load', createParticles);
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'94c8e7d6f1e6b2fa',t:'MTc0OTM5MTEyMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
