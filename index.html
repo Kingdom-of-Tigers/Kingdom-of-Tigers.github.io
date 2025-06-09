@@ -1065,7 +1065,7 @@
     <div id="particles-container" class="fixed inset-0 pointer-events-none z-0"></div>
 
     <!-- Modal -->
-    <div id="contactModal" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 hidden">
+    <!-- <div id="contactModal" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 hidden">
         <div class="cyber-border card rounded-xl p-8 max-w-md w-full mx-4 glass neon-glow">
             <div class="flex justify-between items-center mb-6">
                 <h3 class="text-2xl font-bold primary-text gaming-font">CONTACT US</h3>
@@ -1104,36 +1104,70 @@
                 </button>
             </div>
         </div>
+    </div> -->
+    <div id="contactModal" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 hidden">
+        <div class="cyber-border card rounded-xl p-8 max-w-lg w-full mx-4 glass neon-glow">
+            <!-- Modal Header with Close Button -->
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold primary-text gaming-font">CONTACT US</h3>
+                <button id="closeModal" class="text-gray-400 hover:text-white z-50">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+    
+            <!-- Embedded Google Form -->
+            <iframe 
+                src="https://docs.google.com/forms/d/e/1FAIpQLSdFL_6UnetBHvkq-N5QK6T6T9WuNJfpsx8TeytTYOPewU_5uw/viewform?embedded=true" 
+                width="100%" 
+                height="500" 
+                frameborder="0" 
+                marginheight="0" 
+                marginwidth="0"
+                style="border: none;">
+                Loading…
+            </iframe>
+        </div>
     </div>
-
     <script>
         // Modal functionality
         const contactBtn = document.getElementById('contactBtn');
-        const joinBtn = document.getElementById('joinBtn');
-        const joinBtnBottom = document.getElementById('joinBtnBottom');
-        const contactModal = document.getElementById('contactModal');
-        const closeModal = document.getElementById('closeModal');
-        
-        function openModal() {
-            contactModal.classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
+    const joinBtn = document.getElementById('joinBtn');
+    const joinBtnBottom = document.getElementById('joinBtnBottom');
+    const contactModal = document.getElementById('contactModal');
+    const closeModal = document.getElementById('closeModal');
+
+    function openModal() {
+        contactModal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModalFunc() {
+        contactModal.classList.add('hidden');
+        document.body.style.overflow = 'auto';
+    }
+
+    // Bind buttons safely
+    if (contactBtn) contactBtn.addEventListener('click', openModal);
+    if (joinBtn) joinBtn.addEventListener('click', openModal);
+    if (joinBtnBottom) joinBtnBottom.addEventListener('click', openModal);
+    if (closeModal) closeModal.addEventListener('click', closeModalFunc);
+
+    // Detect click outside modal content
+    contactModal.addEventListener('click', function (e) {
+        const modalContent = document.querySelector('#contactModal .card');
+        if (!modalContent.contains(e.target)) {
+            closeModalFunc();
         }
-        
-        function closeModalFunc() {
-            contactModal.classList.add('hidden');
-            document.body.style.overflow = 'auto';
+    });
+
+    // Close modal on ESC key
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+            closeModalFunc();
         }
-        
-        contactBtn.addEventListener('click', openModal);
-        joinBtn.addEventListener('click', openModal);
-        joinBtnBottom.addEventListener('click', openModal);
-        closeModal.addEventListener('click', closeModalFunc);
-        
-        contactModal.addEventListener('click', function(e) {
-            if (e.target === contactModal) {
-                closeModalFunc();
-            }
-        });
+    });
         
         // Particles effect
         function createParticles() {
