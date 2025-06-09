@@ -1065,46 +1065,6 @@
     <div id="particles-container" class="fixed inset-0 pointer-events-none z-0"></div>
 
     <!-- Modal -->
-    <!-- <div id="contactModal" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 hidden">
-        <div class="cyber-border card rounded-xl p-8 max-w-md w-full mx-4 glass neon-glow">
-            <div class="flex justify-between items-center mb-6">
-                <h3 class="text-2xl font-bold primary-text gaming-font">CONTACT US</h3>
-                <button id="closeModal" class="text-gray-400 hover:text-white">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
-            </div>
-            <div class="space-y-4">
-                <p class="mb-4">Ready to join K@T Guild? Send us a message!</p>
-                <div class="space-y-2">
-                    <label class="block text-gray-300 gaming-font">YOUR LORDS MOBILE NAME</label>
-                    <input type="text" class="w-full p-3 rounded bg-gray-800 border border-indigo-500/30 focus:border-indigo-500 focus:outline-none">
-                </div>
-                <div class="space-y-2">
-                    <label class="block text-gray-300 gaming-font">YOUR MIGHT</label>
-                    <input type="text" class="w-full p-3 rounded bg-gray-800 border border-indigo-500/30 focus:border-indigo-500 focus:outline-none">
-                </div>
-                <div class="space-y-2">
-                    <label class="block text-gray-300 gaming-font">PLAYER TYPE</label>
-                    <select class="w-full p-3 rounded bg-gray-800 border border-indigo-500/30 focus:border-indigo-500 focus:outline-none">
-                        <option value="">Select your player type</option>
-                        <option value="rally-lead">Rally Lead</option>
-                        <option value="rally-filler">Rally Filler</option>
-                        <option value="trap">Trap Account</option>
-                        <option value="other">Other</option>
-                    </select>
-                </div>
-                <div class="space-y-2">
-                    <label class="block text-gray-300 gaming-font">MESSAGE</label>
-                    <textarea class="w-full p-3 rounded bg-gray-800 border border-indigo-500/30 focus:border-indigo-500 focus:outline-none h-32"></textarea>
-                </div>
-                <button class="w-full bg-gradient-to-r from-indigo-500 to-purple-600 py-3 rounded-lg font-bold hover:from-indigo-600 hover:to-purple-700 transition-all duration-300 gaming-font">
-                    SEND MESSAGE
-                </button>
-            </div>
-        </div>
-    </div> -->
     <div id="contactModal" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 hidden">
         <div class="cyber-border card rounded-xl p-8 max-w-lg w-full mx-4 glass neon-glow">
             <!-- Modal Header with Close Button -->
@@ -1117,17 +1077,20 @@
                 </button>
             </div>
     
-            <!-- Embedded Google Form -->
-            <iframe 
-                src="https://docs.google.com/forms/d/e/1FAIpQLSdFL_6UnetBHvkq-N5QK6T6T9WuNJfpsx8TeytTYOPewU_5uw/viewform?embedded=true" 
-                width="100%" 
-                height="500" 
-                frameborder="0" 
-                marginheight="0" 
-                marginwidth="0"
-                style="border: none;">
-                Loading…
-            </iframe>
+            <!-- Buttons for Joining as Player or Guild -->
+            <div class="space-y-6">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdFL_6UnetBHvkq-N5QK6T6T9WuNJfpsx8TeytTYOPewU_5uw/viewform?usp=header"
+                   target="_blank"
+                   class="block w-full py-3 px-6 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg text-center transition duration-300 transform hover:scale-105">
+                   Join as a Player
+                </a>
+    
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfMxIzPv6B8yFEpqPFbBerq5x2-5TCtyWg5sst77cyKMGQK2g/viewform?usp=header"
+                   target="_blank"
+                   class="block w-full py-3 px-6 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg text-center transition duration-300 transform hover:scale-105">
+                   Join Our Family as a Guild
+                </a>
+            </div>
         </div>
     </div>
     <script>
